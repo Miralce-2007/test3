@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>诚邀共赴甬府新芝宴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f8f5f0 0%, #e8e0d5 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #a52a2a 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4a76a 0%, #e6c78a 50%, #d4a76a 100%);
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #8B0000;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0e6d8;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: #8B0000;
+        }
+        
+        .info-item {
+            display: flex;
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .info-item::before {
+            content: "•";
+            color: #8B0000;
+            position: absolute;
+            left: 10px;
+            top: 0;
+            font-size: 20px;
+        }
+        
+        .info-label {
+            width: 80px;
+            font-weight: bold;
+            color: #8B0000;
+            flex-shrink: 0;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .tips-box {
+            background: #fffaf0;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #d4a76a;
+            margin-top: 10px;
+        }
+        
+        .tip-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .tip-icon {
+            width: 30px;
+            height: 30px;
+            background: #8B0000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .btn-call {
+            background: linear-gradient(135deg, #8B0000 0%, #a52a2a 100%);
+            color: white;
+            box-shadow: 0 4px 10px rgba(139, 0, 0, 0.3);
+        }
+        
+        .btn-map {
+            background: linear-gradient(135deg, #1a6dcc 0%, #2a8bfa 100%);
+            color: white;
+            box-shadow: 0 4px 10px rgba(26, 109, 204, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #f9f5f0;
+            border-top: 1px solid #eee;
+        }
+        
+        .signature {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .names {
+            font-weight: bold;
+            color: #8B0000;
+            font-size: 22px;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #999;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .title {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                padding-left: 25px;
+            }
+            
+            .info-label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">诚邀共赴甬府新芝宴</div>
+            <div class="subtitle">—— 明州雅聚 · 敬备午宴 ——</div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">邀请信息</div>
+                <div class="info-item">
+                    <div class="info-label">尊称：</div>
+                    <div class="info-content">亲爱的家人</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">时间：</div>
+                    <div class="info-content">2025年8月31日（星期日）中午 11:30</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">地点：</div>
+                    <div class="info-content">宁波新芝宾馆 · 甬府新芝宴 · 明州</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">地址：</div>
+                    <div class="info-content">浙江省宁波市海曙区翠柏路398号 (宁波新芝宾馆迎宾楼)</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">温馨提示</div>
+                <div class="tips-box">
+                    <div class="tip-item">
+                        <div class="tip-icon">🚇</div>
+                        <div class="tip-content">
+                            <strong>地铁出行：</strong> 乘坐地铁4号线至翠柏里站，从C出口出站后左转步行约20米即达酒店。
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-icon">🚗</div>
+                        <div class="tip-content">
+                            <strong>驾车指引：</strong> 
+                            <ul style="padding-left: 20px; margin-top: 8px;">
+                                <li>酒店正门位于翠柏路（永丰西路与翠柏路交汇处红绿灯左转）</li>
+                                <li>进入酒店大门后右转驶入地下车库B1楼国联中心</li>
+                                <li>请停至"甬府新芝宴专属停车位"</li>
+                                <li>乘坐6号或7号电梯直达二楼甬府新芝宴明州包厢</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tip-item">
+                        <div class="tip-icon">☎️</div>
+                        <div class="tip-content">
+                            <strong>专属管家：</strong> 15057485449 (任何疑问或需要引导，请随时联系)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <a href="tel:15057485449" class="btn btn-call">联系专属管家</a>
+                <a href="https://uri.amap.com/marker?position=121.5365,29.8899&name=宁波新芝宾馆&src=invitation" class="btn btn-map">导航到酒店</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="signature">顺颂时祺</div>
+            <div class="names">张晟明 & 何佳霖 敬邀</div>
+        </div>
+    </div>
+    
+    <script>
+        // 添加点击效果
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+        
+        // 添加分享提示
+        window.onload = function() {
+            if (navigator.userAgent.match(/MicroMessenger/i)) {
+                setTimeout(function() {
+                    alert("点击右上角···分享给好友");
+                }, 3000);
+            }
+        };
+    </script>
+</body>
+</html>
